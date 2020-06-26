@@ -12,21 +12,15 @@ struct MainViewController: View {
     
     
    @EnvironmentObject var userData: UserData
-
+    
     var body: some View {
         VStack {
-            if (userData.isLogin) {
+            if (userData.isLogin == true) {
                 HomeView()
             } else {
-                LoginPage()
-            }
-            Button(action: userData.toggleIsLogin) {
-               Text("BUTTON")
+               LoginPage()
             }
         }
-    
-       
-        
     }
     
     

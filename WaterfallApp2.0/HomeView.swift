@@ -12,10 +12,14 @@ struct HomeView: View {
     @State var inputText: String = ""
     @State var showSearchInput: Bool = false
     @State var showFilterInput: Bool = true
-    
+    @State var backToTop = 0
     
     func toggleSearchInput(){
         showSearchInput = !showSearchInput
+    }
+    
+    func returnToTop(){
+        backToTop = 1 - backToTop
     }
     
     
@@ -55,48 +59,86 @@ struct HomeView: View {
                         .frame(width: 300, height: 30, alignment: .center)
                 }
                 Spacer()
-                ScrollView {
-                    HStack {
-                        ItemCard(imageName: "milo", price: "30")
-                        ItemCard(imageName: "wim", price: "400")
-                        ItemCard(imageName: "milo", price: "10")
-                    }.padding(.bottom)
-                    HStack {
-                        ItemCard(imageName: "wim", price: "320")
-                        ItemCard(imageName: "milo", price: "40")
-                        ItemCard(imageName: "milo", price: "10")
-                    }.padding(.bottom)
-                    HStack {
-                        ItemCard(imageName: "milo", price: "30")
-                        ItemCard(imageName: "wim", price: "400")
-                        ItemCard(imageName: "milo", price: "10")
-                    }.padding(.bottom)
-                    HStack {
-                        ItemCard(imageName: "milo", price: "30")
-                        ItemCard(imageName: "wim", price: "400")
-                        ItemCard(imageName: "milo", price: "10")
-                    }.padding(.bottom)
+                if (backToTop == 0) {
+                    ScrollView {
+                        HStack {
+                            ItemCard(imageName: "liv", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        HStack {
+                            ItemCard(imageName: "wim", price: "320")
+                            ItemCard(imageName: "milo", price: "40")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        HStack {
+                            ItemCard(imageName: "milo", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        HStack {
+                            ItemCard(imageName: "milo", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
 
-                    
-                    HStack {
-                        ItemCard(imageName: "milo", price: "30")
-                        ItemCard(imageName: "wim", price: "400")
-                        ItemCard(imageName: "milo", price: "10")
-                    }.padding(.bottom)
-                    HStack {
-                        ItemCard(imageName: "milo", price: "30")
-                        ItemCard(imageName: "wim", price: "400")
-                        ItemCard(imageName: "milo", price: "10")
-                    }.padding(.bottom)
-                    
-                    
-                    }.padding(.top, 50).cornerRadius(30)
+                        
+                        HStack {
+                            ItemCard(imageName: "milo", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        HStack {
+                            ItemCard(imageName: "milo", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        
+                        
+                        }.padding(.top, 50).cornerRadius(30)
+                } else {
+                    ScrollView {
+                        HStack {
+                            ItemCard(imageName: "liv", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        HStack {
+                            ItemCard(imageName: "wim", price: "320")
+                            ItemCard(imageName: "milo", price: "40")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        HStack {
+                            ItemCard(imageName: "milo", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        HStack {
+                            ItemCard(imageName: "milo", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
 
+                        
+                        HStack {
+                            ItemCard(imageName: "milo", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        HStack {
+                            ItemCard(imageName: "milo", price: "30")
+                            ItemCard(imageName: "wim", price: "400")
+                            ItemCard(imageName: "milo", price: "10")
+                        }.padding(.bottom)
+                        
+                        
+                        }.padding(.top, 50).cornerRadius(30)
+                }
                 
                 Spacer()
                 HStack {
                     Spacer()
-                    NavigationLink (destination: HomeView()){
+                    Button (action: returnToTop){
                         Image(systemName: "house").frame(width: 50, height: 50).font(.largeTitle).foregroundColor(.purple)
                     }
                     Spacer()
