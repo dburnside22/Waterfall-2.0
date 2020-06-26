@@ -31,6 +31,9 @@ struct UserInfoView: View {
 
 struct UserInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        UserInfoView()
+        NavigationView {
+                  UserInfoView()
+        }
+ 
     }
 }
